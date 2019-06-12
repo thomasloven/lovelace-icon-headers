@@ -11,12 +11,24 @@ customElements.whenDefined('card-tools').then(() => {
     <style>
     :host ::slotted(.header-icon) {
       float: left;
-      padding: 26px 8px 16px 26px;
+      padding: 8px;
+      margin: 18px 0 8px 18px;
+      --iron-icon-width: 88px;
+      --iron-icon-height: 88px;
+      margin-top: -20px;
+      box-shadow: var( --ha-card-box-shadow, 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2) );
+      background: var(--ha-card-background, white);
+      border-radius: var(--ha-card-border-radius, 2px);
     }
     .header-icon {
-      padding-left:8px;
-      padding-bottom: 4px;
-      padding-right: 16px;
+      padding: 8px;
+      margin-right: 8px;
+      --iron-icon-width: 88px;
+      --iron-icon-height: 88px;
+      margin-top: -50px;
+      box-shadow: var( --ha-card-box-shadow, 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2) );
+      background: var(--ha-card-background, white);
+      border-radius: var(--ha-card-border-radius, 2px);
     }
     </style>
     ${this.header
@@ -47,6 +59,10 @@ customElements.whenDefined('card-tools').then(() => {
     const config = getConfig(this);
     if(!config) return;
     if(!config.card_icon) return;
+
+    this.style.overflow = "visible";
+
+    this.style.marginTop = "32px";
 
     const icon = document.createElement("ha-icon");
     icon.icon = config.card_icon;
