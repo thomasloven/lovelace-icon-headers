@@ -8,6 +8,7 @@ customElements.whenDefined('card-tools').then(() => {
 
   function render() {
     const retval = cardTools.LitHtml`
+    <slot></slot>
     <style>
     :host ::slotted(.header-icon) {
       float: left;
@@ -24,7 +25,6 @@ customElements.whenDefined('card-tools').then(() => {
         <div class="card-header">${this.header}</div>
         `
       : cardTools.LitHtml``}
-    <slot></slot>
     `;
     return retval;
   }
